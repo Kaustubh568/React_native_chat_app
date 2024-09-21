@@ -6,8 +6,10 @@ import ChatScreen from '../screens/ChatScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
+import PeopleScreen from '../screens/PeopleScreen'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { NavigationContainer } from '@react-navigation/native';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -33,16 +35,41 @@ const StackNavigator = () => {
   const AuthStack = () => {
     return (
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} /> 
+        <Stack.Screen 
+        name="Login" 
+        component={LoginScreen} 
+        options={{headerShown: false}}
+        /> 
+         <Stack.Screen 
+        name="Register" 
+        component={RegisterScreen} 
+        options={{headerShown: false}}
+        /> 
       </Stack.Navigator>
     );
   };
+
+  function MaiStack(){
+     return(
+        <Stack.Navigator>
+            <Stack.Screen 
+            name="Main" 
+            component={BottomTabs} 
+            options={{headerShown:false}} 
+            />
+
+            <Stack.Screen name="People"  
+            component={PeopleScreen}
+            options={{headerShown: false}}
+            /> 
+        </Stack.Navigator>
+     )
+  }
   
   return (
-
-    <View>
-      <Text>StackNavigator</Text>
-    </View>
+    <NavigationContainer>
+      <MainStack />
+    </NavigationContainer>
   )
   }
 
