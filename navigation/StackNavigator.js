@@ -13,7 +13,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
-  const tab = createBottomTabNavigator();
+  const Tab = createBottomTabNavigator();
   function BottomTabs() {
     return (
       <Tab.Navigator>
@@ -49,7 +49,7 @@ const StackNavigator = () => {
     );
   };
 
-  function MaiStack(){
+  function MainStack(){
      return(
         <Stack.Navigator>
             <Stack.Screen 
